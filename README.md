@@ -109,32 +109,10 @@ Products are loaded from **Fake Store API** in the frontend; the backend is not 
 
 ---
 
-## Screenshots
+## Screenshots (optional)
 
-Put images in the `screenshots` folder and use the paths below (or change the filenames in the README).
+If you want to include UI screenshots later, you can:
 
-### Home Page
+- Save image files in the `screenshots` folder (for example: `home.png`, `cart.png`, `orders.png`, `offers.png`, `navbar.png`).
+- Add image links in your Git hosting README (GitHub, GitLab, etc.) using those files.
 
-![Home Page](./screenshots/home.png)
-
-### Cart Page
-
-![Cart Page](./screenshots/cart.png)
-
-### Orders Page
-
-![Orders Page](./screenshots/orders.png)
-
-### Offers (Cart)
-
-![Offers](./screenshots/offers.png)
-
-### Navbar
-
-![Navbar](./screenshots/navbar.png)
-
----
-
-## License
-
-MIT.
