@@ -1,112 +1,208 @@
-# HappyKart – E-Commerce Website
+# 🛒 HappyKart – E-Commerce Website
 
-A full-stack e-commerce web app with product listing, cart, and orders. **Frontend:** React. **Backend:** Express + MongoDB. **Products:** fetched from Fake Store API. **Cart & orders:** stored in your backend.
+A full-stack e-commerce web application with product listing, cart management, offers, and order history.
+
+- **Frontend:** React 18, Redux, React Router, Axios  
+- **Backend:** Node.js, Express 5  
+- **Database:** MongoDB  
+- **Product Data:** Fake Store API (GET products only)  
+- **Cart & Orders:** Stored in custom backend  
 
 ---
 
-## What’s used (tech stack)
+## 🚀 Features
 
-| Part       | Used in this project                |
-| ---------- | ------------------------------------ |
+- 🏠 **Home Page**
+  - Products by category (Men's Clothing, Women's Clothing, Electronics, Jewellery)
+  - Grid layout
+  - Add to Cart
+  - Prices displayed in ₹
+
+- 🛒 **Cart**
+  - Add / Remove items
+  - Increase / Decrease quantity
+  - Guest user support using `localStorage`
+  - Checkout form (Name, Mobile, Address)
+
+- 📦 **Orders**
+  - Place order
+  - View previous orders
+  - See items and total amount
+
+- 🎉 **Offers**
+  - 10% off on Clothing when total > ₹500
+  - 15% off on Electronics & Jewellery when total > ₹1000
+
+- 🎨 **UI**
+  - Inter font
+  - Gradient background
+  - Navbar with live cart count
+
+---
+
+## 🛠 Tech Stack
+
+| Part       | Technology Used |
+|------------|-----------------|
 | Frontend   | React 18, Redux, React Router, Axios |
-| Backend    | Node.js, Express 5, Mongoose        |
-| Database   | MongoDB                             |
-| Product data | Fake Store API (GET products only) |
+| Backend    | Node.js, Express 5, Mongoose |
+| Database   | MongoDB |
+| API        | Fake Store API |
 
 ---
 
-## Features (current)
-
-- **Home** – Products by category (Men's / Women's Clothing, Electronics, Jewellery), grid layout, Add to Cart, prices in ₹
-- **Cart** – Add/remove/change quantity; guest user via `localStorage`; name, mobile, address for checkout
-- **Orders** – Place order, view history with items and totals
-- **Offers** – 10% off on clothing when clothing total > ₹500; 15% off on electronics & jewellery when that total > ₹1000
-- **UI** – Inter font, gradient background, navbar (HappyKart center, Home/Cart/Orders left, cart count right)
-
----
-
-## Project structure
+## 📂 Project Structure
 
 ```
 E-Website/
 ├── E-Commerce-React/     # Frontend
 │   ├── src/
-│   │   ├── apis/         # backendApi, callApi (Fake Store)
-│   │   ├── componets/    # Navbar, CardProducts
-│   │   ├── pages/        # Home, Cart, Orders, Product
+│   │   ├── apis/
+│   │   ├── components/
+│   │   ├── pages/
 │   │   ├── redux/
-│   │   └── utils/        # productCategories (offers)
+│   │   └── utils/
 │   └── package.json
 ├── backend/              # Backend
 │   ├── src/
-│   │   ├── models/       # CartItem, Order
-│   │   ├── routes/       # cart, orders
+│   │   ├── models/
+│   │   ├── routes/
 │   │   └── server.js
-│   ├── .env              # PORT, MONGODB_URI
+│   ├── .env
 │   └── package.json
-├── screenshots/          # Your UI screenshots
+├── screenshots/          # UI Screenshots
 └── README.md
 ```
 
 ---
 
-## Prerequisites
+## ⚙️ Prerequisites
 
 - Node.js (v16+)
-- MongoDB (local or Atlas)
+- MongoDB (Local or Atlas)
 - npm or yarn
 
 ---
 
-## Installation
+## 📦 Installation
 
-**Backend**
+### Backend
 
 ```bash
 cd backend
 npm install
 ```
 
-In `backend/.env`:
+Create `.env` inside backend:
 
-```env
+```
 PORT=5000
 MONGODB_URI=mongodb://127.0.0.1:27017/ecommerce
 ```
 
-**Frontend**
+---
+
+### Frontend
 
 ```bash
 cd E-Commerce-React
 npm install
 ```
 
-Backend URL is in `E-Commerce-React/src/apis/backendApi.js` (`http://localhost:5000/api`). Change if your backend uses another host/port.
+Make sure backend URL in:
+
+```
+E-Commerce-React/src/apis/backendApi.js
+```
+
+is:
+
+```
+http://localhost:5000/api
+```
 
 ---
 
-## Run
+## ▶️ Run the Project
 
-1. Start MongoDB (if local).
-2. Backend: `cd backend` then `npm run dev` → `http://localhost:5000`
-3. Frontend: `cd E-Commerce-React` then `npm start` → `http://localhost:3000`
+1. Start MongoDB
+2. Start Backend:
+
+```bash
+cd backend
+npm run dev
+```
+
+Runs on:
+```
+http://localhost:5000
+```
+
+3. Start Frontend:
+
+```bash
+cd E-Commerce-React
+npm start
+```
+
+Runs on:
+```
+http://localhost:3000
+```
 
 ---
 
-## API (used by the app)
+## 🔌 API Endpoints
 
-| Method | Endpoint | Use |
-| ------ | -------- | --- |
-| GET | `/api/health` | Health check |
-| GET | `/api/cart` | Get cart (`x-user-id` header) |
-| POST | `/api/cart` | Add to cart |
-| PATCH | `/api/cart/:productId` | Change quantity (`action`: increase / decrease) |
-| DELETE | `/api/cart/:productId` | Remove from cart |
-| POST | `/api/orders` | Create order (with optional category discounts) |
-| GET | `/api/orders` | Get user orders |
-
-Products are loaded from **Fake Store API** in the frontend; the backend is not used for product listing.
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | `/api/health` | Health check |
+| GET    | `/api/cart` | Get cart (requires `x-user-id` header) |
+| POST   | `/api/cart` | Add to cart |
+| PATCH  | `/api/cart/:productId` | Update quantity |
+| DELETE | `/api/cart/:productId` | Remove item |
+| POST   | `/api/orders` | Create order |
+| GET    | `/api/orders` | Get user orders |
 
 ---
 
+## 🖼 Screenshots
 
+### 🏠 Home Page
+<p align="center">
+  <img src="screenshots/home.png" width="800"/>
+</p>
+
+### 🏠 Home Page (Category View)
+<p align="center">
+  <img src="screenshots/home2.png" width="800"/>
+</p>
+
+### 🛒 Cart Page
+<p align="center">
+  <img src="screenshots/cart.png" width="800"/>
+</p>
+
+### 🛒 Cart with Offers Applied
+<p align="center">
+  <img src="screenshots/cart2.png" width="800"/>
+</p>
+
+### 📦 Orders Page
+<p align="center">
+  <img src="screenshots/orders.png" width="800"/>
+</p>
+
+---
+
+## 📌 Notes
+
+- Products are fetched from Fake Store API.
+- Backend is used only for cart and order management.
+- No authentication is required (guest checkout supported).
+
+---
+
+## 👨‍💻 Author
+
+**Sridharshan**
